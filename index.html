@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Validate</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button onclick="dlg.showModal()">Abrir</button>
+    <dialog id="dlg">
+    <button onclick="dlg.close()">close</button>
+
+        Hola coca cola
+    </dialog>
+    <label for="auto">NOmbres</label>
+    <input type="text" list="nombre" placeholder="Seleccion"/>
+    <datalist id="nombre">
+        <option value="Jose">
+        <option value="Manuel">
+        <option value="Jimena">
+        <option value="Luis">
+    </datalist>
+    <form method="POST" id="personal" action="/enpoint.php">
+        <div class="">
+            <label for="Nombre">Nombre</label>
+            <input type="text" class="jsvalidate" data-validators="required length">
+        </div>
+        <div class="">
+            <label for="Apellido">Apellido</label>
+            <input type="text" class="jsvalidate" data-validators="required length">
+        </div>
+        <!-- <div class="">
+            <label for="Email">email</label>
+            <input type="text" id="email" name="email" class="jsvalidate">
+        </div> -->
+        <button type="submit">enviar</button>
+    </form>
+    <script type="text/javascript" src="js/jsvalidate.js"></script>
+    <script>
+        const myFormValidator = new JSValidator('personal');
+        myFormValidator.init().setAjax();
+        // console.warn(myFormValidator.inputs);
+    </script>
+</body>
+
+</html>
